@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=https://www.graficart.be/new/",
+    "build": "vite build --base=https://www.graficart.be/",
     "preview": "vite preview"
   },
   "devDependencies": {

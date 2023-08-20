@@ -10,12 +10,12 @@
 
 <style>
   .article {
-    margin: 5rem;
+    margin: 5rem 0;
   }
   img {
     width: 100%;
     height: auto;
-    margin: 1rem auto;
+    margin: 2rem auto;
     aspect-ratio: 16 / 10;
     object-fit: cover;
   }

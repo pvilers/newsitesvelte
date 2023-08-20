@@ -2,7 +2,9 @@
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 * {
@@ -12,17 +14,31 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -38,16 +54,21 @@ p, h1, h2, h3, h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  margin: auto;
+  text-align: center;
 }
 
 main {
   text-align: center;
   text-transform: uppercase;
+  max-width: 1000px;
+  margin: auto;
+  padding: 1.5rem;
 }
 
 a {
   font-weight: 500;
-  color: #A3A8FF;
+  color: #a3a8ff;
   text-decoration: inherit;
 }
 a:hover {
@@ -55,23 +76,65 @@ a:hover {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.5em;
   line-height: 1.1;
+  font-weight: 100;
+  letter-spacing: 3px;
 }
 h2 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 
-footer, header {
-  padding: 1rem; 
+hr {
+  background: linear-gradient(
+    to left,
+    currentColor calc(50% - 16px),
+    transparent calc(50% - 16px),
+    transparent calc(50% + 16px),
+    currentColor calc(50% + 16px)
+  );
+  background-color: transparent !important;
+  border: none;
+  height: 0.05rem;
+  overflow: visible;
+  position: relative;
+}
+hr::before {
+  left: calc(50% - 0.5rem);
+}
+
+hr::after {
+  right: calc(50% - 0.5rem);
+}
+hr::before,
+hr::after {
+  background: currentColor;
+  content: "";
+  display: block;
+  height: 1.6rem;
+  position: absolute;
+  top: calc(50% - 0.8rem);
+  transform: rotate(22.5deg);
+  width: 0.05rem;
+}
+hr:last-child {
+  display: none;
+}
+
+footer,
+header {
+  padding: 2rem;
+  
 }
 
 #logo {
-  width: 100px;
+  width: 150px;
+  height: 150px;
   filter: invert(100%);
+  margin: auto;
 }
 
 footer {
   text-align: center;
-  font-size: .75em;
+  font-size: 0.75em;
 }
