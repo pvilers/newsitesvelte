@@ -4,7 +4,7 @@
 
 <div class="article">
   <h2>{article.titre}</h2>
-  <img src={article.image} alt={article.titre} />
+  <img src={article.image} alt={article.titre} width="341" height="237"/>
   <p>{article.texte}</p>
 </div>
 
@@ -14,6 +14,9 @@
   }
   img {
     width: 100%;
+    height: auto;
     margin: 1rem auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
   }
 </style>
