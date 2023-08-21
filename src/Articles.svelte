@@ -97,7 +97,6 @@ let page = 0;
     ...newBatch
   
   ];
-  console.log(data)
 </script>
 
 <h1>Highlights</h1>
