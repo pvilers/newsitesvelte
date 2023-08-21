@@ -72,9 +72,8 @@
       texte: "CRÉATION D’UN FLYER POUR LE SALON DE TOILETTAGE LAURE",
     }
   ];
-
-// if the api (like in this example) just have a simple numeric pagination
-let page = 0;
+	// if the api (like in this example) just have a simple numeric pagination
+  let page = 0;
 	// but most likely, you'll have to store a token to fetch the next page
 	let nextUrl = '';
 	// store all the data here.
