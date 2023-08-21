@@ -1,33 +1,36 @@
 <script>
   import Article from "./Article.svelte";
-  let articles = [
+  import {onMount} from "svelte";
+	import InfiniteScroll from "./lib/InfiniteScroll.svelte";
+	
+  const articles = [
     {
       image: "img/gipb.webp",
       titre: "GIPB",
       texte:
-        "RÉALISATION DU LOGO, identité graphique ET DU SITE De l'agence immobilière GIPB",
+        "RÉALISATION DU LOGO, identité graphique ET DU SITE pour l'agence immobilière GIPB",
     },
     {
       image: "img/gerardlaw.webp",
       titre: "GERARD LAW",
       texte:
-        "RÉALISATION DU LOGO, identité graphique ET DU SITE DU BUREAU D'AVOCAT GERARD LAW",
+        "RÉALISATION DU LOGO, identité graphique ET DU SITE pour le BUREAU D'AVOCAT GERARD LAW",
     },
     {
       image: "img/whynot.webp",
       titre: "WHY NOT EVENTS",
       texte:
-        "REALISATION RÉALISATION IDENTITé GRAPHIQUE POUR WHY NOT EVENTS & WHY NOT TRAITEUR",
+        "RÉALISATION IDENTITé GRAPHIQUE POUR WHY NOT EVENTS & WHY NOT TRAITEUR",
     },
     {
       image: "img/sofille.webp",
       titre: "SO FILLE",
-      texte: "REALISATION DU SITE INTERNET DE L'INSTITUT SOFILLE",
+      texte: "RéALISATION DU SITE INTERNET pour L'INSTITUT SOFILLE",
     },
     {
       image: "img/pimthai.webp",
       titre: "PIMTHAI",
-      texte: "REALISATION DU MENU DU TRAITEUR PIMTHAI",
+      texte: "RéALISATION DU MENU pour le TRAITEUR PIMTHAI",
     },
     {
       image: "img/hm.webp",
@@ -38,7 +41,7 @@
       image: "img/c21.webp",
       titre: "CENTURY 21",
       texte:
-        "REALISATION DU SITE INTERNET DE CENTURY 21 AVANTAGE AVEC ACTIVIMMO",
+        "RéALISATION DU SITE INTERNET pour CENTURY 21 AVANTAGE AVEC ACTIVIMMO",
     },
     {
       image: "img/peintagone.webp",
@@ -50,7 +53,7 @@
       image: "img/sainte-elisabeth.webp",
       titre: "SAINTE-ELISABETH",
       texte:
-        "RÉALISATION DU SITE INTERNET DE L’ÉCOLE SAINTE-ELISABETH D’ARCHENNES",
+        "RÉALISATION DU SITE INTERNET pour L’ÉCOLE SAINTE-ELISABETH D’ARCHENNES",
     },
     {
       image: "img/jardinsenherbe.webp",
@@ -69,12 +72,47 @@
       texte: "CRÉATION D’UN FLYER POUR LE SALON DE TOILETTAGE LAURE",
     }
   ];
+
+// if the api (like in this example) just have a simple numeric pagination
+let page = 0;
+	// but most likely, you'll have to store a token to fetch the next page
+	let nextUrl = '';
+	// store all the data here.
+	let data = [];
+	// store the new batch of data here.
+	let newBatch = [];
+	
+	async function fetchData() {
+		const response = await articles;
+		newBatch = await response;
+	};
+	
+	onMount(()=> {
+		// load first batch onMount
+		fetchData();
+	})
+
+  $: data = [
+		...data,
+    ...newBatch
+  
+  ];
+  console.log(data)
 </script>
 
 <h1>Highlights</h1>
+<container>
 <article>
-  {#each articles as article}
+  {#each data as article}
     <Article {article} />
-    <hr>
+    <h5>
+      All items loaded: {newBatch.length ? 'No' : 'Yes'}
+    </h5>
+    <hr />
   {/each}
+  <InfiniteScroll
+  hasMore={newBatch.length}
+  threshold={100}
+  on:loadMore={() => {page++; fetchData()}} />
 </article>
+</container>
