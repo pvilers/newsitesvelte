@@ -1,116 +1,47 @@
 <script>
-  import Article from "./Article.svelte";
-  import {onMount} from "svelte";
-	import InfiniteScroll from "./lib/InfiniteScroll.svelte";
-	
-  const articles = [
-    {
-      image: "img/gipb.webp",
-      titre: "GIPB",
-      texte:
-        "RÉALISATION DU LOGO, identité graphique ET DU SITE pour l'agence immobilière GIPB",
-    },
-    {
-      image: "img/gerardlaw.webp",
-      titre: "GERARD LAW",
-      texte:
-        "RÉALISATION DU LOGO, identité graphique ET DU SITE pour le BUREAU D'AVOCAT GERARD LAW",
-    },
-    {
-      image: "img/whynot.webp",
-      titre: "WHY NOT EVENTS",
-      texte:
-        "RÉALISATION IDENTITé GRAPHIQUE POUR WHY NOT EVENTS & WHY NOT TRAITEUR",
-    },
-    {
-      image: "img/sofille.webp",
-      titre: "SO FILLE",
-      texte: "RéALISATION DU SITE INTERNET pour L'INSTITUT SOFILLE",
-    },
-    {
-      image: "img/pimthai.webp",
-      titre: "PIMTHAI",
-      texte: "RéALISATION DU MENU pour le TRAITEUR PIMTHAI",
-    },
-    {
-      image: "img/hm.webp",
-      titre: "Hervé Meillon",
-      texte: "participation à la mise en page et à la promotion des livres d'Hervé Meillon",
-    },
-     {
-      image: "img/c21.webp",
-      titre: "CENTURY 21",
-      texte:
-        "RéALISATION DU SITE INTERNET pour CENTURY 21 AVANTAGE AVEC ACTIVIMMO",
-    },
-    {
-      image: "img/peintagone.webp",
-      titre: "PEINTAGONE",
-      texte:
-        "CRÉATION D’IDENTITÉ VISUELLE POUR LA SOCIÉTÉ DE PEINTURE 100% BELGE PEINTAGONE",
-    },
-    {
-      image: "img/sainte-elisabeth.webp",
-      titre: "SAINTE-ELISABETH",
-      texte:
-        "RÉALISATION DU SITE INTERNET pour L’ÉCOLE SAINTE-ELISABETH D’ARCHENNES",
-    },
-    {
-      image: "img/jardinsenherbe.webp",
-      titre: "JARDINS EN HERBE",
-      texte:
-        "RÉALISATION DU LOGO ET DE POLOS POUR L’ENTREPRISE DE JARDINAGE JARDINS EN HERBE",
-    },
-    {
-      image: "img/terblock.webp",
-      titre: "TERBLOCK",
-      texte: "CRÉATION IDENTITÉ GRAPHIQUE ET SITE POUR LE CHÂTEAU DE TERBLOCK",
-    },
-    {
-      image: "img/laure.webp",
-      titre: "LAURE",
-      texte: "CRÉATION D’UN FLYER POUR LE SALON DE TOILETTAGE LAURE",
-    }
-  ];
-	// if the api (like in this example) just have a simple numeric pagination
-  let page = 0;
-	// but most likely, you'll have to store a token to fetch the next page
-	let nextUrl = '';
-	// store all the data here.
-	let data = [];
-	// store the new batch of data here.
-	let newBatch = [];
-	
-	async function fetchData() {
-		const response = await articles;
-		newBatch = await response;
-	};
-	
-	onMount(()=> {
-		// load first batch onMount
-		fetchData();
-	})
+  import InfiniteScroll from "svelte-infinite-scroll";
+  import articles from './articles.json';
 
-  $: data = [
-		...data,
-    ...newBatch
-  
+  let page = 0;
+  let size = 5;
+  let datas = [];
+
+  $: datas = [
+     ...datas,
+     ...articles.splice(size * page, size * (page + 1)),
   ];
 </script>
 
 <h1>Highlights</h1>
 <container>
 <article>
-  {#each data as article}
-    <Article {article} />
-    <h5>
-      All items loaded: {newBatch.length ? 'No' : 'Yes'}
-    </h5>
+  {#each datas as article}
+ <div class="article">
+  <h2>{article.titre}</h2>
+  <img src={article.image} alt={article.titre} width="341" height="237"/>
+  <p>{article.texte}</p>
+  <h5>
+    All items loaded: {articles.length ? 'No' : 'Yes'}
+  </h5>
+</div>
     <hr />
   {/each}
   <InfiniteScroll
-  hasMore={newBatch.length}
+  hasMore={datas.length < articles.length}
   threshold={100}
-  on:loadMore={() => {page++; fetchData()}} />
+  on:loadMore={() => page++} />
 </article>
 </container>
+
+<style>
+  .article {
+    margin: 5rem 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin: 2rem auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+</style>
