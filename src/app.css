@@ -1,14 +1,7 @@
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-* {
-  margin: 0;
 }
 body {
   line-height: 1.1;
@@ -123,12 +116,11 @@ hr:last-child {
 footer,
 header {
   padding: 2rem;
-  
 }
 
 #logo {
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   filter: invert(100%);
   margin: auto;
 }
@@ -142,8 +134,8 @@ footer {
   :root {
     font-size: 14px;
   }
-  h1 {  
+  h1 {
     letter-spacing: 3px;
-    font-size:14vw;
+    font-size: 14vw;
   }
 }

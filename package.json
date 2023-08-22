@@ -12,6 +12,7 @@
     "@sveltejs/adapter-static": "next",
     "@sveltejs/vite-plugin-svelte": "^2.4.2",
     "svelte": "^4.0.5",
+    "svelte-lazyimage-cache": "^1.0.9-remake",
     "vite": "^4.4.5"
   },
   "dependencies": {
