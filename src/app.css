@@ -113,21 +113,18 @@ hr:last-child {
   display: none;
 }
 
-footer,
-header {
-  padding: 2rem;
-}
-
 #logo {
   width: 175px;
   height: 175px;
   filter: invert(100%);
-  margin: auto;
+  margin: 2rem auto;
 }
 
-footer {
+footer{
   text-align: center;
-  font-size: 0.75em;
+  height: 2rem;
+  font-size: .7rem;
+  position:sticky;
 }
 
 @media screen and (max-width: 600px) {
@@ -137,5 +134,8 @@ footer {
   h1 {
     letter-spacing: 3px;
     font-size: 14vw;
+  }
+  footer {
+    height: 3rem;
   }
 }

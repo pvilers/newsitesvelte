@@ -1,18 +1,23 @@
 [
   {
-    "image": "img/gipb.webp",
-    "titre": "GIPB",
-    "texte": "RÉALISATION DU LOGO, identité graphique ET DU SITE pour l'agence immobilière GIPB"
-  },
-  {
-    "image": "img/gerardlaw.webp",
-    "titre": "GERARD LAW",
-    "texte": "RÉALISATION DU LOGO, identité graphique ET DU SITE pour le BUREAU D'AVOCAT GERARD LAW"
+    "image": "img/terblock.webp",
+    "titre": "TERBLOCK",
+    "texte": "CRÉATION LOGO, IDENTITÉ GRAPHIQUE ET WEBSITE POUR LE CHÂTEAU DE TERBLOCK"
   },
   {
     "image": "img/whynot.webp",
     "titre": "WHY NOT EVENTS",
-    "texte": "RÉALISATION IDENTITé GRAPHIQUE POUR WHY NOT EVENTS & WHY NOT TRAITEUR"
+    "texte": "RÉALISATION IDENTITé GRAPHIQUE ET WEBSITE POUR WHY NOT EVENTS & WHY NOT TRAITEUR"
+  },
+  {
+    "image": "img/gipb.webp",
+    "titre": "GIPB",
+    "texte": "RÉALISATION DU LOGO, identité graphique ET DU WEBSITE pour l'agence immobilière GIPB"
+  },
+  {
+    "image": "img/gerardlaw.webp",
+    "titre": "GERARD LAW",
+    "texte": "RÉALISATION DU LOGO, identité graphique ET DU WEBSITE pour le BUREAU D'AVOCAT GERARD LAW"
   },
   {
     "image": "img/sofille.webp",
@@ -48,11 +53,6 @@
     "image": "img/jardinsenherbe.webp",
     "titre": "JARDINS EN HERBE",
     "texte": "RÉALISATION DU LOGO ET DE POLOS POUR L’ENTREPRISE DE JARDINAGE JARDINS EN HERBE"
-  },
-  {
-    "image": "img/terblock.webp",
-    "titre": "TERBLOCK",
-    "texte": "CRÉATION IDENTITÉ GRAPHIQUE ET SITE POUR LE CHÂTEAU DE TERBLOCK"
   },
   {
     "image": "img/laure.webp",
